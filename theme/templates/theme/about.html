@@ -1,0 +1,185 @@
+{% extends 'theme/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+.rw-wrapper{
+	width: 80%;
+	position: relative;
+	margin: 50px auto 10 auto;
+    font-family: 'Bree Serif', serif;
+    font-size: small;
+    font-weight: bold;
+	padding: 10px;
+}
+.rw-sentence span{
+	color: #444;
+	white-space: nowrap;
+	font-size: 150%;
+	font-weight: normal;
+}
+.rw-sentence{
+	margin: 0;
+	text-align: left;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+.rw-words{
+	display: inline;
+	text-indent: 10px;
+}
+.rw-words span{
+	position: absolute;
+	opacity: 0;
+	overflow: hidden;
+	width: 100%;
+	color: #6b969d;
+}
+.rw-words-1 span{
+	animation: rotateWordsFirst 12s linear infinite 0s;
+}
+.rw-words-2 span{
+	animation: rotateWordsSecond 12s linear infinite 0s;
+}
+.rw-words span:nth-child(2) {
+    -webkit-animation-delay: 2s;
+	animation-delay: 2s;
+	color: #6b889d;
+}
+.rw-words span:nth-child(3) {
+    -webkit-animation-delay: 4s;
+	animation-delay: 4s;
+	color: #6b739d;
+}
+.rw-words span:nth-child(4) {
+    -webkit-animation-delay: 6s;
+
+	animation-delay: 6s;
+	color: #7a6b9d;
+}
+.rw-words span:nth-child(5) {
+        -webkit-animation-delay: 8s;
+
+	animation-delay: 8s;
+	color: #8d6b9d;
+}
+.rw-words span:nth-child(6) {
+        -webkit-animation-delay: 10s;
+	animation-delay: 10s;
+	color: #9b6b9d;
+}
+{#@keyframes rotateWordsFirst {#}
+{#    0% { opacity: 1; animation-timing-function: linear; height: 0px; }#}
+{#    8% { opacity: 1; height: 60px; }#}
+{#    19% { opacity: 1; height: 60px; }#}
+{#	25% { opacity: 0; height: 60px; }#}
+{#    100% { opacity: 0; }#}
+{#}#}
+@-webkit-keyframes rotateWordsFirst {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); }
+	5% { opacity: 1; -webkit-transform: translateY(0px);}
+    17% { opacity: 1; -webkit-transform: translateY(0px); }
+	20% { opacity: 0; -webkit-transform: translateY(30px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-webkit-keyframes rotateWordsFirst {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); }
+	5% { opacity: 1; -webkit-transform: translateY(0px);}
+    17% { opacity: 1; -webkit-transform: translateY(0px); }
+	20% { opacity: 0; -webkit-transform: translateY(30px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@-webkit-keyframes rotateWordsSecond {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); }
+	5% { opacity: 1; -webkit-transform: translateY(0px);}
+    17% { opacity: 1; -webkit-transform: translateY(0px); }
+	20% { opacity: 0; -webkit-transform: translateY(30px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes rotateWordsFirst {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+	5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+    17% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
+	20% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+@keyframes rotateWordsSecond {
+    0% { opacity: 0; }
+    2% { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+	5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+    17% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
+	20% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+	80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+{#@keyframes rotateWordsSecond {#}
+{#    0% { opacity: 1; animation-timing-function: linear; width: 0px; }#}
+{#    10% { opacity: 0.3; width: 0px; }#}
+{#	20% { opacity: 1; width: 100%; }#}
+{#    27% { opacity: 0; width: 100%; }#}
+{#    100% { opacity: 0; }#}
+{#}#}
+
+@media screen and (max-width: 768px){
+	.rw-sentence { font-size: 18px; }
+}
+@media screen and (max-width: 320px){
+	.rw-sentence { font-size: 9px; }
+}
+
+
+</style>
+    <div style="position: fixed; width: 100%" class="about page" id="ABOUT">
+        <div class="container">
+            <div style="padding-top: 50px" class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <!-- ABOUT US SECTION TITLE-->
+                    <div class="section_title">
+                        <h2>About Us</h2>
+                        <p>Data Divas is a social media benchmarking platform that helps you make real time decision by comparing, benchmarking ad analyzing your social performance.<br>
+                        With Data Divas, take your social media performance above and beyond the ordinary.<br>
+                        Drive growth by understanding your audience, creating content they love, analyzing engagement and improving cross channel care.</p>
+                    </div>
+                </div>
+
+            </div>
+            <section style="padding-bottom:500px;padding-left: 110px" class="text-center rw-wrapper">
+                <h2 class="rw-sentence">
+    {#                <span>Real poetry is like</span>#}
+    {#                <br />#}
+    {#                <span>creating beautiful butterflies</span>#}
+    {#                <br />#}
+                    <span >Evolve your social strategy with</span>
+                        <div class="rw-words rw-words-1">
+                            <span>Content Analysis</span>
+                            <span>Comment moderation</span>
+                            <span>Sentiment Analysis</span>
+                            <span>Fake news detection</span>
+                            <span>Media monitoring</span>
+                            <span>Instagram analysis</span>
+                        </div>
+                    <br><br>
+    {#                <h2 style="font-family: arial-black"><br>For soical media marketers</h2>/br></h2>#}
+                </h2>
+
+{#                <div>#}
+{#                    <img src="{% static 'theme/landing_page/images/flow.png' %}" alt="">#}
+{#                </div>#}
+
+
+
+
+            </section>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}

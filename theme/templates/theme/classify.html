@@ -1,0 +1,55 @@
+{% extends 'theme/base.html' %}
+{% block content %}
+
+    <div style="position: fixed; width: 100%" class="about page" id="ABOUT">
+        <div class="container">
+            <div style="padding-top: 140px;padding-left: 300px;padding-right: 250px" class="row">
+
+                <h1 class="text-center"><B>COVID-19 DETECTION</B></h1>
+                <div style="padding-top: 30px;padding-right: 200px" >
+                    <form method="post" id="fileform" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="file-select">
+                            <div style="padding-left: 100px; padding-bottom: 40px ; padding-top: 20px">
+                                <div class="file-upload" style="padding-right: 400px; position:center;border-radius:8px;border:#ebebeb solid 1px;width:250px;font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;color: #7f7f7f;margin-top: 2px;background:white">
+                                    {#                                    <span>Choose File</span>#}
+                                    <input id="chooseFile" name="myfile" type="file" />
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding-left: 250px">
+                            <button id="sub" class="btn btn-success btn-lg" type="submit">Predict</button>
+                        </div>
+                    </form>
+                </div>
+
+                {#                <div style="padding-top: 250px;padding-right: 200px;padding-left: 600px" class="col-xs-2">#}
+                {#                    <img style="height: 400px;width: 400px;border-radius: 50%;background-color: #dff0d8 " src="data:image/png;base64,{{ cloud|safe }}" alt="" >#}
+                {#                </div>#}
+
+                <div style="padding-left: 180px">
+                    {% if file_url %}
+                        <h1 style="padding-left:75px" id="filename"><strong>{{ result }}</strong></h1>
+                        <img src="data:image/png;base64,{{file_url}}" style="width:224px;height: 224px;">
+                    {% endif %}
+                </div>
+
+
+            </div>
+            <section style="padding-bottom:500px;padding-left: 110px" class="text-center rw-wrapper">
+
+
+
+
+            </section>
+        </div>
+
+
+
+    </div>
+
+
+{% endblock %}
+
+
+

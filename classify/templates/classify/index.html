@@ -1,0 +1,48 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "classify/style.css" %}">
+<link rel="stylesheet" href="{% static "classify/bootstrap.min.css" %}">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Covid-19 Detection</title>
+    </head>
+    <body>
+        <div id='name' class='container'>
+
+            <div style="padding-top: 30px">
+                <header style="padding-top: 30px; padding-bottom: 80px; height: 60px">
+                    <h2 id='head4'><strong>COVID-19 DETECTOR</strong></h2>
+                </header>
+            </div>
+
+            <p></p>
+            <form method="post" id="fileform" enctype="multipart/form-data">
+                {% csrf_token %}
+                                <div class="file-select">
+                                    <div style="padding-left: 100px; padding-bottom: 40px ; padding-top: 20px">
+                                        <div class="file-upload" style="padding-right: 400px; position:center;border-radius:8px;border:#ebebeb solid 1px;width:250px;font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;color: #7f7f7f;margin-top: 2px;background:white">
+        {#                                    <span>Choose File</span>#}
+                                            <input id="chooseFile" name="myfile" type="file" />
+                                        </div>
+                                    </div>
+                                </div>
+{#                <div class="file-upload" >#}
+{#                    <div class="file-select" style="padding-right: 100px">#}
+{#                        <div class="file-select-button" id="fileName" style="padding-right: 100px">Choose File</div>#}
+{#                    <div class="file-select-name" id="noFile">No File Chosen...</div>#}
+{#                        <input id="chooseFile" type="file" name="myfile"/>#}
+{#                    </div>#}
+{#                </div>#}
+                <button id="sub" class="btn btn-success btn-lg" type="submit">Predict</button>
+            </form>
+
+            {% if file_url %}
+            <h1 id="filename"><strong>{{ result }}</strong></h1>
+            <img src="data:image/png;base64,{{file_url}}" style="width:224px;height: 224px;">
+            {% endif %}
+        </div>
+    </body>
+    <script type="text/javascript" src="{% static 'plant_app/jQuery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plant_app/effect.js' %}"></script>
+</html>

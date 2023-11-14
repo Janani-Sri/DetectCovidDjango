@@ -1,0 +1,68 @@
+{% extends 'theme/base.html' %}
+{% load static %}
+{% block content %}
+    <div style="position: fixed; width: 100%" class="header parallax home-parallax page" id="HOME">
+        <div class="container home-container">
+            {#            <div class="row">#}
+            {#                <div class="col-xs-2">#}
+            {#                    <div style="padding-top: 50px;padding-bottom: 15px;padding-left: 375px;" class="logo text-center">#}
+            {#                        <!-- LOGO -->#}
+            {#                        <img width="125" height="90" src="{% static 'theme/landing_page/images/logo.png' %}" alt="">#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#                <div class="col">#}
+            {#                    <h1 style="color: #f39c12;padding-top: 55px;padding-bottom: 15px;padding-left: 540px;font-size: 50px"><b>DATA DIVAS</b></h1>#}
+            {#                    </div>#}
+            {#            </div>#}
+            <div class="row">
+                <div class="col-md-8 col-sm-8">
+                    <div style="position: center" class="home_text">
+                        <!-- TITLE AND DESC -->
+                        <h1 style="font-position: center"><b>DATA DIVAS</b></h1>
+                        <p>Data Beats Emotions.What We Have Is The Data Glut.</p>
+                        <div>
+                            {% if user.is_authenticated %}
+                                <h3 style="color: white">Hello, {{ user.username }}...Evolve your social strategy with Data Divas.</h3>
+                            {% else %}
+                                <h3 style="color: white">Login to Data Divas to analyze your Facebook Profile</h3>
+                            {% endif %}
+                        </div>
+                        <div >
+                            <!-- BUTTON -->
+                            <div style="padding-left: 5px;padding-top: 100px;" class="col-xs-2">
+                                {% if request.user.is_authenticated %}
+{#                                    <a><form method="post" action="{% url 'account_logout' %}" >#}
+                                        <button class="btn home-btn wow fadeInLeft" >LOGOUT{% csrf_token %}
+                                            {% if redirect_field_value %}
+                                                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                                            {% endif %}</button>
+{#                                    </form></a>#}
+                                {% else %}
+                                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                                {% endif %}
+                            </div>
+                            <a style="padding-left: 50px;padding-top: 112px" class="tuor btn wow fadeInRig ht" href="{% url 'about_us' %}">Take a tour <i
+                                    class="fa fa-angle-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-1 col-sm-4">
+                    {#                    <div style="padding-top: 90px" class="col-md-3 text-center">#}
+
+                    {% if request.user.is_authenticated and request.user.email %}
+                        <div style="padding-top:30px" class="col-md-3 text-center">
+                            <img  style="height: 250px;width: 250px;border-radius: 50%;background-color: #dff0d8 ;opacity: 0.5;" src="http://graph.facebook.com/{{uid}}/picture?width=300&height=300" alt="">
+                            {#                            <img  src="http://graph.facebook.com/2496044853944388/picture" alt="">#}
+                        </div>
+                    {% else %}
+                        <div style="padding-top: 30px" class="col-md-3 text-center">
+                            <img style="height: 250px;width: 250px;border-radius: 50%;background-color: #dff0d8 ;opacity: 0.5" src="{% static 'theme/landing_page/images/user.png' %}" alt="">
+                        </div>
+                    {% endif %}
+
+                    {#                    </div>#}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
