@@ -1,4 +1,4 @@
-# COVIDPEIDA - Covid 19 Detection using X-Rays
+# COVIDPEDIA - Covid 19 Detection using X-Rays
 
 Covidpedia is a benchmarking platform that is designed to detect Covid-19 from chest x-ray images.
 
